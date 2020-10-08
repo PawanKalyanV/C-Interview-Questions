@@ -1,2 +1,2 @@
 # C-Interview-Questions
-interview questions
+solutions for interview questions
