@@ -1,2 +1,3 @@
-# C-Interview-Questions
-interview questions
+# DataStructures
+data structures using c
+
