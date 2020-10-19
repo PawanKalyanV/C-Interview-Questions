@@ -30,25 +30,25 @@ int main()
 
    switch(ch)
      {
-      case1: printf("enter the element:");
+      case 1: printf("enter the element:");
              scanf("%d",&ele);
 	     push(ele);
 	     break;
 
-      case2: ele = pop();
+      case 2: ele = pop();
 	     if(ele == 0)
 	     {
 	       printf("stack is underflow");
 	     }
 	     pop();
 	     break;
-      case3:
+      case 3:
 	     peek();
 	     break;
-      case4:
+      case 4:
 	     traverse();
 	     break;
-      case5: exit(0);
+      case 5: exit(0);
 	     default:printf("invalid input\n");
 
      }
