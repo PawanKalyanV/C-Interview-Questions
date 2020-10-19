@@ -23,7 +23,7 @@ int main()
 	while(1)
 	{
 	printf("1.push\n");
-	 printf("2.pop\n");
+	printf("2.pop\n");
 	printf("3.peek\n");
 	printf("4.traverse\n");
 	printf ("5.quit\n");
@@ -60,7 +60,9 @@ int main()
 
 void push(int ele)
 {
-	if(isFull() == 1){
+   
+
+	   if(isFull() == 1){
 
 	   printf("\nThe stack is full\n");
 	}
@@ -70,6 +72,7 @@ void push(int ele)
 	  printf("\nElement is incerted\n");
 
 	 }
+    
 
 
         int isFull(){
@@ -86,6 +89,7 @@ void push(int ele)
 
 int pop()
 {
+    
 	if(isEmpity() == 1){
 
 	  printf("\nThe stack is empity\n");
@@ -95,10 +99,10 @@ int pop()
 	  return stack[top];
 	  --top;
 	  printf("\nElement deleted from stack\n");
-      }	
+       }
+          
       
-
-           int isEmpity(){
+         int isEmpity(){
 
 	     if(top == -1){
 		     return 1;
@@ -106,13 +110,14 @@ int pop()
 	     else{
 		     return 0;
              } 
-	 }
+	   }
 }
 
 
 void peek()
 {
-        if(isEmpity() == 1){
+
+	   if(isEmpity() == 1){
 
 	    printf("\nThe stack is empity");
 
@@ -121,12 +126,25 @@ void peek()
 	 {
 	  printf("%d",top);
 	 }
-	
+
+     
+
+	int isEmpity(){
+
+             if(top == -1){
+                     return 1;
+             }
+             else{
+                     return 0;
+             }
+
+	}
 }
 
 
 void traverse()
 {
+   
 	if(isEmpity() == 1){
 
 		printf("\nstack is empity\n");
@@ -139,6 +157,19 @@ void traverse()
 
 		printf("%d",stack[i]);
 	  }
-      }
+	}
+	
+
+
+	int isEmpity(){
+
+             if(top == -1){
+                    return 1;
+             }
+             else{
+                    return 0;
+             }
+	}
+
 }
 
