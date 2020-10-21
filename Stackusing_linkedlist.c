@@ -37,27 +37,20 @@ void add(struct car *newNode)
 
         s1 = HEAD;
 
-        while(HEAD != NULL){
+        newNode->next = HEAD;
 
-             HEAD = newNode;
-             newNode->next = s1;
-
-        }
+        HEAD = newNode;
 }
 
 void delete()
 {
         struct car *s1 = NULL;
 
-
-       while(HEAD != NULL){
-
          s1 = HEAD;
 
         HEAD = HEAD->next;
 
-      }
-       free(s1);
+        free(s1);
 }
 
 
@@ -66,7 +59,7 @@ void main()
         struct car *s1 = NULL;
 
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "Honda city";
+        s1->name = "\nHonda city";
         s1->segment = "suv";
         s1->milage = 20;
         s1->power = 80;
@@ -74,7 +67,7 @@ void main()
         add(s1);
 
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "Tata nexon";
+        s1->name = "\nTata nexon";
         s1->segment = "Hatch Back";
         s1->milage = 24;
         s1->power = 87;
@@ -82,7 +75,7 @@ void main()
         add(s1);
 
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "maruthi";
+        s1->name = "\nmaruthi";
         s1->segment = "suv";
         s1->milage = 21;
         s1->power = 78;
@@ -90,20 +83,12 @@ void main()
         add(s1);
 
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "bmw";
+        s1->name = "\nBmw";
         s1->segment = "suv";
         s1->milage = 21;
         s1->power = 78;
         s1->next = NULL;
-        add(s1);
-
-        s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "altroz";
-        s1->segment = "suv";
-        s1->milage = 20;
-        s1->power = 75;
-        s1->next = NULL;
-        add(s1);
+        add(s1);     
 
         traverse();
 
@@ -111,5 +96,7 @@ void main()
 
         traverse();
 
-                
+      //   delete();
+
+     //   traverse();
 }
