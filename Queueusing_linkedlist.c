@@ -29,7 +29,7 @@ void traverse(void)
 }
 
 
-void add(struct car *newNode)
+int add(struct car *newNode)
 {
 
         struct car *s1 = NULL;
@@ -37,29 +37,30 @@ void add(struct car *newNode)
 
         s1 = HEAD;
 
-        while(HEAD != NULL){
+        if(s1 == NULL){
 
-             HEAD->next = newNode;
-	     newNode->next = NULL;
-
+             HEAD = newNode;
+	     
+	     return 0;
         }
-}
+	while(s1->next != NULL){
 
+		s1 = s1->next;
+	}
+
+	s1->next = newNode;
+}
 
 
 void delete()
 {
         struct car *s1 = NULL;
 
+         s1 = HEAD;
 
-       while(HEAD != NULL){
+        HEAD = HEAD->next;
 
-	 s1 = HEAD;
-         
-	HEAD = HEAD->next;
-       
-      }
-       free(s1);
+        free(s1);
 }
 
 
@@ -67,7 +68,7 @@ void main()
 {
         struct car *s1 = NULL;
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "Honda city";
+        s1->name = "\nHonda city";
         s1->segment = "suv";
         s1->milage = 20;
         s1->power = 80;
@@ -75,7 +76,7 @@ void main()
         add(s1);
 
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "Tata nexon";
+        s1->name = "\nTata nexon";
         s1->segment = "Hatch Back";
         s1->milage = 24;
         s1->power = 87;
@@ -83,7 +84,7 @@ void main()
         add(s1);
 
         s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "maruthi";
+        s1->name = "\nmaruthi";
         s1->segment = "suv";
         s1->milage = 21;
         s1->power = 78;
@@ -91,24 +92,17 @@ void main()
         add(s1);
         
 	s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "bmw";
+        s1->name = "\nBmw";
         s1->segment = "suv";
         s1->milage = 21;
         s1->power = 78;
-        s1->next = NULL;
-        add(s1);
-
-        s1 = (struct car *)malloc(sizeof(struct car));
-        s1->name = "altroz";
-        s1->segment = "suv";
-        s1->milage = 20;
-        s1->power = 75;
         s1->next = NULL;
         add(s1);
       
         traverse();
 
        	delete();
+
         traverse();
 
 }
