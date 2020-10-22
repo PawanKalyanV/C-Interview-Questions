@@ -14,9 +14,9 @@ struct stack{
 struct stack *HEAD = NULL;
 
 
-void push(struct stack *newNode)
+void push(char c)
 {
-        char c;
+        struct stack *newNode;
 
         newNode = (struct stack *)malloc(sizeof(struct stack));
 
@@ -26,6 +26,7 @@ void push(struct stack *newNode)
 
         HEAD = newNode;
 }
+
 
 int pop()
 {
@@ -42,17 +43,22 @@ int pop()
         free(s1);
 
 	return c1;
+
+	if(HEAD == NULL){
+	return '#';
+	}
 }
 
 
- int main()
+
+int main()
 {
 
 FILE *fp;
 
 char c, c2;
 
-  fp = fopen ("/home/pavankalyan/myprograms/Stackusing_linkedlist.c", "r");
+  fp = fopen ("/home/pavankalyan/C-Interview-Questions/new.c", "r");
 
   while((c = fgetc(fp)) != EOF)
   {
@@ -62,30 +68,40 @@ char c, c2;
 	   push(c);
      }   
    
-   if(c == '}'){
+      if( c == '}' ){
 
 	c2 =  pop();
-     }
+
+	if(c2 != '{'){
+
+		printf("Unbalanced");
+		return 0;
+	 } 
+      }
     
-   if(c == '['){
+      if( c == ']' ){
 
        c2 = pop();
-     }
+
+       if(c2 != '['){
+
+                printf("Unbalanced");
+                return 0;
+
+        } 
+      } 
    
-   if(c == ')'){
+      if( c == ')' ){
 
        c2 = pop();
-     }
-  
-    
-      if( c =='{' && c2 =='}')
-	      printf("Braces matched");
 
-      if(c =='(' && c2 ==')')
-	      printf("paranthesis matched");
-		   
-      if(c =='[' && c2 ==']')
-	      printf("brackets matched");
-     
-    }
+       if(c2 != '('){
+
+                printf("Unbalanced");
+                return 0;
+          }
+      }
+
+  }
+
 }
