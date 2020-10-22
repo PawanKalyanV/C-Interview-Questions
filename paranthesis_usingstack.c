@@ -14,11 +14,11 @@ struct stack{
 struct stack *HEAD = NULL;
 
 
-
-
 void push(struct stack *newNode)
 {
         char c;
+
+        newNode = (struct stack *)malloc(sizeof(struct stack));
 
 	newNode->c = c;
 
@@ -43,7 +43,6 @@ int pop()
 
 	return c1;
 }
-
 
 
  int main()
@@ -88,6 +87,5 @@ char c, c2;
       if(c =='[' && c2 ==']')
 	      printf("brackets matched");
      
-  
-  }
+    }
 }
